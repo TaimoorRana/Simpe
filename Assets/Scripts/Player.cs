@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
 		verticalMovement = 0f;
 		moveSpeed = 7.5f;
 		rotationSpeed = 100f;
-		bulletSpeed = 10f;
+		bulletSpeed = 100f;
 		rb = GetComponent<Rigidbody> ();
 		bulletStartLocation = transform.FindChild ("BulletStartLocation");
 	}
@@ -52,7 +52,6 @@ public class Player : MonoBehaviour {
 	void Jump(){
 		if (Input.GetKeyDown (KeyCode.Space) && transform.position.y <= minimumHeightForJump) {
 			rb.velocity = new Vector3 (0, 10f, 0);
-
 		}
 	}
 
