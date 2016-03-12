@@ -10,9 +10,6 @@ public class Player : MonoBehaviour {
 
 	public float moveSpeed;
 	public float rotationSpeed;
-	public float bulletSpeed;
-	public GameObject bullet;
-	public Transform bulletStartLocation;
 
 	// Use this for initialization
 	void Start () {
@@ -20,9 +17,8 @@ public class Player : MonoBehaviour {
 		verticalMovement = 0f;
 		moveSpeed = 7.5f;
 		rotationSpeed = 100f;
-		bulletSpeed = 100f;
+
 		rb = GetComponent<Rigidbody> ();
-		bulletStartLocation = transform.FindChild ("BulletStartLocation");
 	}
 	
 	// Update is called once per frame
@@ -56,11 +52,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Shoot(){
-		if (Input.GetKeyDown (KeyCode.Return)) {
-			GameObject bulletCopy = (GameObject)Instantiate (bullet,bulletStartLocation.position,Quaternion.identity);
-			bulletCopy.GetComponent<Rigidbody> ().velocity = transform.forward * bulletSpeed;
-			Destroy (bulletCopy, 2f);
-		}
+		
 	}
 
 }
