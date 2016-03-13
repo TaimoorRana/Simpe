@@ -6,13 +6,14 @@ public class Gun : MonoBehaviour {
 	public float bulletSpeed;
 	public GameObject bullet;
 	public Transform bulletStartLocation;
-
+	ScoreManager scoreManager;
 
 	// Use this for initialization
 	void Start () {
 		audioSource = GetComponent<AudioSource> ();
 		bulletSpeed = 100f;
 		bulletStartLocation = transform.FindChild ("BulletStartLocation");
+		scoreManager = GameObject.Find ("ScoreManager").GetComponent<ScoreManager>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +28,7 @@ public class Gun : MonoBehaviour {
 			bulletCopy.GetComponent<Rigidbody> ().velocity = transform.forward * bulletSpeed;
 			audioSource.Play ();
 			Destroy (bulletCopy, 2f);
+			scoreManager.ChangeScore ("Team McGames", 1);
 		}
 	}
 }
