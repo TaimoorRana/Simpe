@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
 	void Update () {
 		Move ();
 		Jump ();
-		Rotate ();
+	    Rotate ();
 		Shoot (); 
 
 	}
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Jump(){
-		if (Input.GetKeyDown (KeyCode.Space) && transform.position.y <= minimumHeightForJump) {
+		if (Input.GetKeyDown (KeyCode.Space) && rb.velocity.y <=0 && rb.velocity.y >= -0.1f) {
 			rb.velocity = new Vector3 (0, 10f, 0);
 		}
 	}
