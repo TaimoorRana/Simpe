@@ -55,4 +55,9 @@ public class Player : MonoBehaviour {
 		
 	}
 
+	public void Dead(){
+		transform.GetComponentInChildren<Camera> ().GetComponent<Transform> ().parent = null;
+		Destroy (gameObject);
+	}
+
 }

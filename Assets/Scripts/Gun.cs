@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour {
 			bulletCopy.GetComponent<Rigidbody> ().velocity = transform.forward * bulletSpeed;
 			audioSource.Play ();
 			Destroy (bulletCopy, 2f);
-			scoreManager.ChangeScore ("Team McGames", 1);
+			//scoreManager.ChangeScore ("Team McGames", 1);
 		}
 	}
 }
